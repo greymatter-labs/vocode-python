@@ -262,6 +262,7 @@ class AzureSynthesizer(BaseSynthesizer[AzureSynthesizerConfig]):
                     )
                     break
                 yield SynthesisResult.ChunkResult(chunk_transform(audio_buffer), False)
+            audio_data_stream.close()
 
         word_boundary_event_pool = WordBoundaryEventPool()
         self.synthesizer.synthesis_word_boundary.connect(
